@@ -110,19 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnAC:{
-                lblOperarcion.setText("");
-
-                Operacion = "";
-                StringNum1 = "";
-                StringNum2 = "";
-                Resultado = 0;
-                lblOperarcion.setText("");
-                lblResultado.setText("");
-                num1 = 0;
-                num2 = 0;
-            }
-            break;
-            case R.id.btnDEL:{
                 if (lblOperarcion.getText().length() != 0){
                     String text = lblOperarcion.getText().toString();
                     text = text.substring(0, text.length()-1);
@@ -137,6 +124,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         StringNum1 = Text1.substring(0, Text1.length()-1);
                     }
                 }
+            }
+            break;
+            case R.id.btnDEL:{
+                lblOperarcion.setText("");
+
+                Operacion = "";
+                StringNum1 = "";
+                StringNum2 = "";
+                Resultado = 0;
+                lblOperarcion.setText("");
+                lblResultado.setText("");
+                num1 = 0;
+                num2 = 0;
             }
             break;
             case R.id.btn0:{
@@ -301,19 +301,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
-                Operacion = "+";
 
-                if (StringNum1 != "" && StringNum2 != "") {
-                    num1 = Double.parseDouble(StringNum1);
-                    num2 = Double.parseDouble(StringNum2);
+                if (Operacion == "+"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
 
-                    Resultado = num1 + num2;
-                    lblResultado.setText(Escribe(Resultado));
-                    num1 = 0;
-                    num2 = 0;
-                    StringNum1 = lblResultado.getText().toString();
-                    StringNum2 = "";
+                        Resultado = num1 + num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "-"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 - num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "*"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 * num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "/"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 / num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
                 }
+
+                Operacion = "+";
             }
             break;
             case R.id.btnMenos:{
@@ -338,19 +377,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
-                Operacion = "-";
 
-                if (StringNum1 != "" && StringNum2 != "") {
-                    num1 = Double.parseDouble(StringNum1);
-                    num2 = Double.parseDouble(StringNum2);
+                if (Operacion == "+"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
 
-                    Resultado = num1 - num2;
-                    lblResultado.setText(Escribe(Resultado));
-                    num1 = 0;
-                    num2 = 0;
-                    StringNum1 = lblResultado.getText().toString();
-                    StringNum2 = "";
+                        Resultado = num1 + num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "-"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 - num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "*"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 * num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "/"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 / num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
                 }
+
+                Operacion = "-";
             }
             break;
             case R.id.btnMultiplicacion:{
@@ -375,19 +453,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
-                Operacion = "*";
 
-                if (StringNum1 != "" && StringNum2 != "") {
-                    num1 = Double.parseDouble(StringNum1);
-                    num2 = Double.parseDouble(StringNum2);
+                if (Operacion == "+"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
 
-                    Resultado = num1 * num2;
-                    lblResultado.setText(Escribe(Resultado));
-                    num1 = 0;
-                    num2 = 0;
-                    StringNum1 = lblResultado.getText().toString();
-                    StringNum2 = "";
+                        Resultado = num1 + num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "-"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 - num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "*"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 * num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "/"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 / num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
                 }
+
+                Operacion = "*";
             }
             break;
             case R.id.btnDivision:{
@@ -412,19 +529,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
-                Operacion = "/";
 
-                if (StringNum1 != "" && StringNum2 != "") {
-                    num1 = Double.parseDouble(StringNum1);
-                    num2 = Double.parseDouble(StringNum2);
+                if (Operacion == "+"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
 
-                    Resultado = num1 / num2;
-                    lblResultado.setText(Escribe(Resultado));
-                    num1 = 0;
-                    num2 = 0;
-                    StringNum1 = lblResultado.getText().toString();
-                    StringNum2 = "";
+                        Resultado = num1 + num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "-"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 - num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "*"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 * num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
+                }else if (Operacion == "/"){
+                    if (StringNum1 != "" && StringNum2 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        num2 = Double.parseDouble(StringNum2);
+
+                        Resultado = num1 / num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        num2 = 0;
+                        StringNum1 = lblResultado.getText().toString();
+                        StringNum2 = "";
+                    }
                 }
+
+                Operacion = "/";
             }
             break;
             case R.id.btnIgual: {
