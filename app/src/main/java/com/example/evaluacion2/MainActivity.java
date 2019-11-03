@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.text.NumberFormat;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,7 +25,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText lblOperarcion;
 
     // Cremoas variables para guardar las operaciones y el resultado.
-    double Operacion, Resultado;
+    double num1=0, num2=0, Resultado =0;
+    String abrirParentesis = "(", cerrarParentesis = ")";
+    String StringNum1="", StringNum2="";
+    String Operacion="";
+
     int charIndex = 0;
 
     @Override
@@ -94,6 +100,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.btnAC:{
                 lblOperarcion.setText("");
+
+                Operacion = "";
+                StringNum1 = "";
+                StringNum2 = "";
+                Resultado = 0;
+                lblOperarcion.setText("");
+                lblResultado.setText("");
+                num1 = 0;
+                num2 = 0;
             }
             break;
             case R.id.btnDEL:{
@@ -101,6 +116,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 text = text.substring(0, text.length()-1);
                 lblOperarcion.setText(text);
                 lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                if (!StringNum2.isEmpty()){
+                    String Text2 = StringNum2;
+                    StringNum2 = Text2.substring(0, Text2.length()-1);
+                }else if (!StringNum1.isEmpty()){
+                    String Text1 = StringNum1;
+                    StringNum1 = Text1.substring(0, Text1.length()-1);
+                }
             }
             break;
             case R.id.btnMas:{
@@ -116,7 +139,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
+                Operacion = "+";
 
+                if (!StringNum2.isEmpty() && Resultado != 0){
+                    num2 = Double.parseDouble(StringNum2);
+
+                    Resultado = Resultado + num2;
+                    lblResultado.setText(String.valueOf(Resultado));
+                    num1 = 0;
+                    num2 = 0;
+                    StringNum1 = "";
+                    StringNum2 = "";
+                }
             }
             break;
 
@@ -133,56 +167,158 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
+                Operacion = "-";
+
+                if (!StringNum2.isEmpty() && Resultado != 0){
+                    num2 = Double.parseDouble(StringNum2);
+
+                    Resultado = Resultado - num2;
+                    lblResultado.setText(String.valueOf(Resultado));
+                    num1 = 0;
+                    num2 = 0;
+                    StringNum1 = "";
+                    StringNum2 = "";
+                }
             }
             break;
             case R.id.btn0:{
-                lblOperarcion.setText(lblOperarcion.getText() + "0");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()){
+                    lblOperarcion.setText(lblOperarcion.getText() + "0");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 0;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "0");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 0;
+                }
             }
             break;
             case R.id.btn1:{
-                lblOperarcion.setText(lblOperarcion.getText() + "1");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "1");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 1;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "1");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 1;
+                }
             }
             break;
             case R.id.btn2:{
-                lblOperarcion.setText(lblOperarcion.getText() + "2");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "2");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + "2";
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "2");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + "2";
+                }
             }
             break;
             case R.id.btn3:{
-                lblOperarcion.setText(lblOperarcion.getText() + "3");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "3");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 3;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "3");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 3;
+                }
             }
             break;
             case R.id.btn4:{
-                lblOperarcion.setText(lblOperarcion.getText() + "4");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "4");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 4;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "4");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 4;
+                }
             }
             break;
             case R.id.btn5:{
-                lblOperarcion.setText(lblOperarcion.getText() + "5");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "5");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 5;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "5");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 5;
+                }
             }
             break;
             case R.id.btn6:{
-                lblOperarcion.setText(lblOperarcion.getText() + "6");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "6");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 6;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "6");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 6;
+                }
             }
             break;
             case R.id.btn7:{
-                lblOperarcion.setText(lblOperarcion.getText() + "7");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "7");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 7;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "7");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 7;
+                }
             }
             break;
             case R.id.btn8:{
-                lblOperarcion.setText(lblOperarcion.getText() + "8");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "8");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 8;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "8");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 8;
+                }
             }
             break;
             case R.id.btn9:{
-                lblOperarcion.setText(lblOperarcion.getText() + "9");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    lblOperarcion.setText(lblOperarcion.getText() + "9");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum1 = StringNum1 + 9;
+                }else{
+                    lblOperarcion.setText(lblOperarcion.getText() + "9");
+                    lblOperarcion.setSelection(lblOperarcion.getText().length());
+
+                    StringNum2 = StringNum2 + 9;
+                }
             }
             break;
             case R.id.btnDivision:{
@@ -197,6 +333,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setText(lblOperarcion.getText() + "/");
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
+                }
+                Operacion = "/";
+
+                if (!StringNum2.isEmpty() && Resultado != 0){
+                    num2 = Double.parseDouble(StringNum2);
+
+                    Resultado = Resultado / num2;
+                    lblResultado.setText(String.valueOf(Resultado));
+                    num1 = 0;
+                    num2 = 0;
+                    StringNum1 = "";
+                    StringNum2 = "";
                 }
             }
             break;
@@ -213,10 +361,123 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
+                Operacion = "*";
+
+                if (!StringNum2.isEmpty() && Resultado != 0){
+                    num2 = Double.parseDouble(StringNum2);
+
+                    Resultado = Resultado * num2;
+                    lblResultado.setText(String.valueOf(Resultado));
+                    num1 = 0;
+                    num2 = 0;
+                    StringNum1 = "";
+                    StringNum2 = "";
+                }
             }
             break;
             case R.id.btnIgual:{
+                if (Operacion == "+"){
+                    if (Resultado == 0) {
+                        if (!StringNum1.isEmpty() && !StringNum2.isEmpty()) {
+                            num1 = Double.parseDouble(StringNum1);
+                            num2 = Double.parseDouble(StringNum2);
 
+                            Resultado = num1 + num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }else{
+                        if (!StringNum2.isEmpty()) {
+                            num2 = Double.parseDouble(StringNum2);
+
+                            Resultado = Resultado + num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }
+                }else if (Operacion == "-"){
+                    if (Resultado == 0) {
+                        if (!StringNum1.isEmpty() && !StringNum2.isEmpty()) {
+                            num1 = Double.parseDouble(StringNum1);
+                            num2 = Double.parseDouble(StringNum2);
+
+                            Resultado = num1 - num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }else{
+                        if (!StringNum2.isEmpty()) {
+                            num2 = Double.parseDouble(StringNum2);
+
+                            Resultado = Resultado - num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }
+                }else if (Operacion == "*"){
+                    if (Resultado == 0) {
+                        if (!StringNum1.isEmpty() && !StringNum2.isEmpty()) {
+                            num1 = Double.parseDouble(StringNum1);
+                            num2 = Double.parseDouble(StringNum2);
+
+                            Resultado = num1 * num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }else{
+                        if (!StringNum2.isEmpty()) {
+                            num2 = Double.parseDouble(StringNum2);
+
+                            Resultado = Resultado * num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }
+                }else if (Operacion == "/"){
+                    if (Resultado == 0) {
+                        if (!StringNum1.isEmpty() && !StringNum2.isEmpty()) {
+                            num1 = Double.parseDouble(StringNum1);
+                            num2 = Double.parseDouble(StringNum2);
+
+                            Resultado = num1 / num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }else{
+                        if (!StringNum2.isEmpty()) {
+                            num2 = Double.parseDouble(StringNum2);
+
+                            Resultado = Resultado / num2;
+                            lblResultado.setText(String.valueOf(Resultado));
+                            num1 = 0;
+                            num2 = 0;
+                            StringNum1 = "";
+                            StringNum2 = "";
+                        }
+                    }
+                }
+                lblOperarcion.setText("");
             }
             break;
             case R.id.btnAbrir:{
@@ -230,8 +491,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
             case R.id.btnPunto:{
-                lblOperarcion.setText(lblOperarcion.getText() + ".");
-                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                if (Operacion.isEmpty()) {
+                    if (lblOperarcion.getText().length() != 0) {
+                        String text = lblOperarcion.getText().toString();
+                        if (text.charAt(text.length() - 1) != '*' && text.charAt(text.length() - 1) != '+' && text.charAt(text.length() - 1) != '-' && text.charAt(text.length() - 1) != '/' && text.charAt(text.length() - 1) != '(' && text.charAt(text.length() - 1) != ')'&& text.charAt(text.length() - 1) != '.') {
+                            if (StringNum1.contains(".") == false){
+                                lblOperarcion.setText(lblOperarcion.getText() + ".");
+                                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                                StringNum1 = StringNum1 + ".";
+                            }
+                        }
+                    }
+                }else{
+                    if (lblOperarcion.getText().length() != 0) {
+                        String text = lblOperarcion.getText().toString();
+                        if (text.charAt(text.length() - 1) != '*' && text.charAt(text.length() - 1) != '+' && text.charAt(text.length() - 1) != '-' && text.charAt(text.length() - 1) != '/' && text.charAt(text.length() - 1) != '(' && text.charAt(text.length() - 1) != ')'&& text.charAt(text.length() - 1) != '.') {
+                            if (StringNum2.contains(".") == false) {
+                                lblOperarcion.setText(lblOperarcion.getText() + ".");
+                                lblOperarcion.setSelection(lblOperarcion.getText().length());
+                                StringNum2 = StringNum2 + ".";
+                            }
+                        }
+                    }
+                }
             }
             break;
             default:{
@@ -239,5 +521,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
         }
+    }
+    public String Escribe(double d) {
+        NumberFormat nf = new DecimalFormat("##.###");
+        return nf.format(d);
     }
 }
