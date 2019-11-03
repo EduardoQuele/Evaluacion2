@@ -139,111 +139,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
             break;
-            case R.id.btnMas:{
-                if (lblOperarcion.getText().length() != 0){
-                    String text = lblOperarcion.getText().toString();
-                    if (text.charAt(text.length()-1) == '/' || text.charAt(text.length()-1) == '-' || text.charAt(text.length()-1) == '*'){
-
-                        text = text.substring(0, text.length()-1);
-                        lblOperarcion.setText(text + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }else {
-                        lblOperarcion.setText(lblOperarcion.getText() + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }
-                }else {
-                    if (Resultado == 0){
-                        StringNum1 = "0";
-                        lblOperarcion.setText(StringNum1 + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }else {
-                        StringNum1 = lblResultado.getText().toString();
-                        lblOperarcion.setText(StringNum1 + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }
-                }
-                Operacion = "+";
-
-                /*if (StringNum2 != "" && Resultado != 0){
-                    num2 = Double.parseDouble(StringNum2);
-
-                    Resultado = Resultado + num2;
-                    lblResultado.setText(String.valueOf(Resultado));
-                    num1 = 0;
-                    num2 = 0;
-                    StringNum1 = "";
-                    StringNum2 = "";
-                }*/
-            }
-            break;
-
-            case R.id.btnMenos:{
-                if (lblOperarcion.getText().length() != 0){
-                    String text = lblOperarcion.getText().toString();
-                    if (text.charAt(text.length()-1) == '/' || text.charAt(text.length()-1) == '+' || text.charAt(text.length()-1) == '*'){
-
-                        text = text.substring(0, text.length()-1);
-                        lblOperarcion.setText(text + "-");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }else {
-                        lblOperarcion.setText(lblOperarcion.getText() + "-");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }
-                }else {
-                    if (Resultado == 0){
-                        StringNum1 = "0";
-                        lblOperarcion.setText(StringNum1 + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }else {
-                        StringNum1 = lblResultado.getText().toString();
-                        lblOperarcion.setText(StringNum1 + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }
-                }
-                Operacion = "-";
-
-                /*if (StringNum2 != "" && Resultado != 0){
-                    num2 = Double.parseDouble(StringNum2);
-
-                    Resultado = Resultado - num2;
-                    lblResultado.setText(String.valueOf(Resultado));
-                    num1 = 0;
-                    num2 = 0;
-                    StringNum1 = "";
-                    StringNum2 = "";
-                }*/
-            }
-            break;
             case R.id.btn0:{
-                if (Operacion == ""){
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "0");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 0;
-                }else{
+                    StringNum1 = StringNum1 + "0";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "0");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 0;
+                    StringNum2 = StringNum2 + "0";
                 }
             }
             break;
             case R.id.btn1:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "1");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 1;
-                }else{
+                    StringNum1 = StringNum1 + "1";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "1");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 1;
+                    StringNum2 = StringNum2 + "1";
                 }
             }
             break;
             case R.id.btn2:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "2");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
@@ -257,283 +182,340 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
             case R.id.btn3:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "3");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 3;
-                }else{
+                    StringNum1 = StringNum1 + "3";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "3");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 3;
+                    StringNum2 = StringNum2 + "3";
                 }
             }
             break;
             case R.id.btn4:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "4");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 4;
-                }else{
+                    StringNum1 = StringNum1 + "4";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "4");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 4;
+                    StringNum2 = StringNum2 + "4";
                 }
             }
             break;
             case R.id.btn5:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "5");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 5;
-                }else{
+                    StringNum1 = StringNum1 + "5";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "5");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 5;
+                    StringNum2 = StringNum2 + "5";
                 }
             }
             break;
             case R.id.btn6:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "6");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 6;
-                }else{
+                    StringNum1 = StringNum1 + "6";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "6");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 6;
+                    StringNum2 = StringNum2 + "6";
                 }
             }
             break;
             case R.id.btn7:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "7");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 7;
-                }else{
+                    StringNum1 = StringNum1 + "7";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "7");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 7;
+                    StringNum2 = StringNum2 + "7";
                 }
             }
             break;
             case R.id.btn8:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "8");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 8;
-                }else{
+                    StringNum1 = StringNum1 + "8";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "8");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 8;
+                    StringNum2 = StringNum2 + "8";
                 }
             }
             break;
             case R.id.btn9:{
-                if (Operacion == "") {
+                if (Operacion == "" || lblOperarcion.getText().length() == 0) {
                     lblOperarcion.setText(lblOperarcion.getText() + "9");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum1 = StringNum1 + 9;
-                }else{
+                    StringNum1 = StringNum1 + "9";
+                }else if (StringNum1 != ""){
                     lblOperarcion.setText(lblOperarcion.getText() + "9");
                     lblOperarcion.setSelection(lblOperarcion.getText().length());
 
-                    StringNum2 = StringNum2 + 9;
+                    StringNum2 = StringNum2 + "9";
+                }
+            }
+            break;
+            case R.id.btnMas:{
+                if (lblOperarcion.getText().length() != 0){
+                    String text = lblOperarcion.getText().toString();
+                    if (text.charAt(text.length()-1) == '/' || text.charAt(text.length()-1) == '-' || text.charAt(text.length()-1) == '*' || text.charAt(text.length()-1) == '+'){
+                        text = text.substring(0, text.length()-1);
+                        lblOperarcion.setText(text + "+");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }else {
+                        lblOperarcion.setText(text + "+");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }
+                }else {
+                    if (Resultado == 0) {
+                        StringNum1 = "0";
+                        lblOperarcion.setText(StringNum1 + "+");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    } else {
+                        StringNum1 = lblResultado.getText().toString();
+                        lblOperarcion.setText(StringNum1 + "+");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }
+                }
+                Operacion = "+";
+
+                if (StringNum1 != "" && StringNum2 != "") {
+                    num1 = Double.parseDouble(StringNum1);
+                    num2 = Double.parseDouble(StringNum2);
+
+                    Resultado = num1 + num2;
+                    lblResultado.setText(Escribe(Resultado));
+                    num1 = 0;
+                    num2 = 0;
+                    StringNum1 = lblResultado.getText().toString();
+                    StringNum2 = "";
+                }
+            }
+            break;
+            case R.id.btnMenos:{
+                if (lblOperarcion.getText().length() != 0){
+                    String text = lblOperarcion.getText().toString();
+                    if (text.charAt(text.length()-1) == '/' || text.charAt(text.length()-1) == '-' || text.charAt(text.length()-1) == '*' || text.charAt(text.length()-1) == '+'){
+                        text = text.substring(0, text.length()-1);
+                        lblOperarcion.setText(text + "-");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }else {
+                        lblOperarcion.setText(text + "-");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }
+                }else {
+                    if (Resultado == 0) {
+                        StringNum1 = "0";
+                        lblOperarcion.setText(StringNum1 + "-");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    } else {
+                        StringNum1 = lblResultado.getText().toString();
+                        lblOperarcion.setText(StringNum1 + "-");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }
+                }
+                Operacion = "-";
+
+                if (StringNum1 != "" && StringNum2 != "") {
+                    num1 = Double.parseDouble(StringNum1);
+                    num2 = Double.parseDouble(StringNum2);
+
+                    Resultado = num1 - num2;
+                    lblResultado.setText(Escribe(Resultado));
+                    num1 = 0;
+                    num2 = 0;
+                    StringNum1 = lblResultado.getText().toString();
+                    StringNum2 = "";
+                }
+            }
+            break;
+            case R.id.btnMultiplicacion:{
+                if (lblOperarcion.getText().length() != 0){
+                    String text = lblOperarcion.getText().toString();
+                    if (text.charAt(text.length()-1) == '/' || text.charAt(text.length()-1) == '-' || text.charAt(text.length()-1) == '*' || text.charAt(text.length()-1) == '+'){
+                        text = text.substring(0, text.length()-1);
+                        lblOperarcion.setText(text + "*");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }else {
+                        lblOperarcion.setText(text + "*");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }
+                }else {
+                    if (Resultado == 0) {
+                        StringNum1 = "0";
+                        lblOperarcion.setText(StringNum1 + "*");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    } else {
+                        StringNum1 = lblResultado.getText().toString();
+                        lblOperarcion.setText(StringNum1 + "*");
+                        lblOperarcion.setSelection(lblOperarcion.getText().length());
+                    }
+                }
+                Operacion = "*";
+
+                if (StringNum1 != "" && StringNum2 != "") {
+                    num1 = Double.parseDouble(StringNum1);
+                    num2 = Double.parseDouble(StringNum2);
+
+                    Resultado = num1 * num2;
+                    lblResultado.setText(Escribe(Resultado));
+                    num1 = 0;
+                    num2 = 0;
+                    StringNum1 = lblResultado.getText().toString();
+                    StringNum2 = "";
                 }
             }
             break;
             case R.id.btnDivision:{
                 if (lblOperarcion.getText().length() != 0){
                     String text = lblOperarcion.getText().toString();
-                    if (text.charAt(text.length()-1) == '*' || text.charAt(text.length()-1) == '+' || text.charAt(text.length()-1) == '-'){
-
+                    if (text.charAt(text.length()-1) == '/' || text.charAt(text.length()-1) == '-' || text.charAt(text.length()-1) == '*' || text.charAt(text.length()-1) == '+'){
                         text = text.substring(0, text.length()-1);
                         lblOperarcion.setText(text + "/");
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }else {
-                        lblOperarcion.setText(lblOperarcion.getText() + "/");
+                        lblOperarcion.setText(text + "/");
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }else {
-                    if (Resultado == 0){
+                    if (Resultado == 0) {
                         StringNum1 = "0";
-                        lblOperarcion.setText(StringNum1 + "+");
+                        lblOperarcion.setText(StringNum1 + "/");
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }else {
+                    } else {
                         StringNum1 = lblResultado.getText().toString();
-                        lblOperarcion.setText(StringNum1 + "+");
+                        lblOperarcion.setText(StringNum1 + "/");
                         lblOperarcion.setSelection(lblOperarcion.getText().length());
                     }
                 }
                 Operacion = "/";
 
-                /*if (StringNum2 != "" && Resultado != 0){
+                if (StringNum1 != "" && StringNum2 != "") {
+                    num1 = Double.parseDouble(StringNum1);
                     num2 = Double.parseDouble(StringNum2);
 
-                    Resultado = Resultado / num2;
-                    lblResultado.setText(String.valueOf(Resultado));
+                    Resultado = num1 / num2;
+                    lblResultado.setText(Escribe(Resultado));
                     num1 = 0;
                     num2 = 0;
-                    StringNum1 = "";
+                    StringNum1 = lblResultado.getText().toString();
                     StringNum2 = "";
-                }*/
-            }
-            break;
-            case R.id.btnMultiplicacion:{
-                if (lblOperarcion.getText().length() != 0){
-                    String text = lblOperarcion.getText().toString();
-                    if (text.charAt(text.length()-1) == '/' || text.charAt(text.length()-1) == '+' || text.charAt(text.length()-1) == '-'){
-
-                        text = text.substring(0, text.length()-1);
-                        lblOperarcion.setText(text + "*");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }else {
-                        lblOperarcion.setText(lblOperarcion.getText() + "*");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }
-                }else {
-                    if (Resultado == 0){
-                        StringNum1 = "0";
-                        lblOperarcion.setText(StringNum1 + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }else {
-                        StringNum1 = lblResultado.getText().toString();
-                        lblOperarcion.setText(StringNum1 + "+");
-                        lblOperarcion.setSelection(lblOperarcion.getText().length());
-                    }
                 }
-                Operacion = "*";
-
-                /*if (StringNum2 == "" && Resultado != 0){
-                    num2 = Double.parseDouble(StringNum2);
-
-                    Resultado = Resultado * num2;
-                    lblResultado.setText(String.valueOf(Resultado));
-                    num1 = 0;
-                    num2 = 0;
-                    StringNum1 = "";
-                    StringNum2 = "";
-                }*/
             }
             break;
-            case R.id.btnIgual:{
-                if (Operacion == "+"){
-                    //if (Resultado == 0) {
-                        if (StringNum1 != "" && StringNum2 != "") {
-                            num1 = Double.parseDouble(StringNum1);
+            case R.id.btnIgual: {
+                if (Operacion == "+") {
+                    if (StringNum1 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = num1 + num2;
-                            lblResultado.setText(Escribe(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
-                            Operacion = "";
                         }
-                    /*}else{
-                        if (StringNum2 != "") {
+                        Resultado = num1 + num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }else {
+                        num1 = Resultado;
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = Resultado + num2;
-                            lblResultado.setText(String.valueOf(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
                         }
-                    }*/
-                }else if (Operacion == "-"){
-                    //if (Resultado == 0) {
-                        if (StringNum1 != "" && StringNum2 != "") {
-                            num1 = Double.parseDouble(StringNum1);
+                        Resultado = num1 + num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }
+                } else if (Operacion == "-") {
+                    if (StringNum1 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = num1 - num2;
-                            lblResultado.setText(Escribe(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
-                            Resultado = 0;
-                            Operacion = "";
                         }
-                    /*}else{
-                        if (StringNum2 != "") {
+                        Resultado = num1 - num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }else {
+                        num1 = Resultado;
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = Resultado - num2;
-                            lblResultado.setText(Escribe(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
                         }
-                    }*/
-                }else if (Operacion == "*"){
-                    //if (Resultado == 0) {
-                        if (StringNum1 != "" && StringNum2 != "") {
-                            num1 = Double.parseDouble(StringNum1);
+                        Resultado = num1 - num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }
+                } else if (Operacion == "*") {
+                    if (StringNum1 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = num1 * num2;
-                            lblResultado.setText(Escribe(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
-                            Operacion = "";
                         }
-                    /*}else{
-                        if (StringNum2 != "") {
+                        Resultado = num1 * num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }else {
+                        num1 = Resultado;
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = Resultado * num2;
-                            lblResultado.setText(Escribe(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
                         }
-                    }*/
-                }else if (Operacion == "/"){
-                    //if (Resultado == 0) {
-                        if (StringNum1 != "" && StringNum2 != "") {
-                            num1 = Double.parseDouble(StringNum1);
+                        Resultado = num1 * num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }
+                } else if (Operacion == "/") {
+                    if (StringNum1 != "") {
+                        num1 = Double.parseDouble(StringNum1);
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = num1 / num2;
-                            lblResultado.setText(Escribe(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
-                            Operacion = "";
                         }
-                    /*}else{
-                        if (StringNum2 != "") {
+                        Resultado = num1 / num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }else {
+                        num1 = Resultado;
+                        if (!StringNum2.isEmpty()){
                             num2 = Double.parseDouble(StringNum2);
-
-                            Resultado = Resultado / num2;
-                            lblResultado.setText(Escribe(Resultado));
-                            num1 = 0;
-                            num2 = 0;
-                            StringNum1 = "";
-                            StringNum2 = "";
                         }
-                    }*/
+                        Resultado = num1 / num2;
+                        lblResultado.setText(Escribe(Resultado));
+                        num1 = 0;
+                        StringNum1 = "";
+                        StringNum2 = "";
+                    }
                 }
                 lblOperarcion.setText("");
             }
