@@ -28,6 +28,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end|center_vertical"
+                    android:textColor="@color/Gris"
                     android:background="@android:color/transparent"
                     android:textSize="18sp"/>
 
@@ -36,6 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="25dp"
                     android:text="0"
+                    android:textColor="@color/Negro"
                     android:gravity="end|center_vertical"
                     android:textSize="14sp" />
 
